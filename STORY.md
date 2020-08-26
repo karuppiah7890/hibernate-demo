@@ -631,3 +631,5 @@ $ ./gradlew test
 BUILD SUCCESSFUL in 5s
 4 actionable tasks: 2 executed, 2 up-to-date
 ```
+
+Now, what's pending is, trying to understand what ALL happened BEHIND the scenes.
