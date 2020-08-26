@@ -420,4 +420,36 @@ table again and also not import the `import.sql`. I think it's only a one time
 thing when a table is created. If table is already present, I think it won't be
 done. Hmm
 
+Describe table didn't work though, weirdly. It gave some error
+https://www.postgresqltutorial.com/postgresql-describe-table/
+
+Oh wait. Hmm. I just tried to get into the database to see the table after
+stopping the service, there were no tables!! It gets created only when the 
+service starts and the importing is done everytime. Right. The table is
+also destroyed on stopping the service. That's weird. Hmm
+
+Gotta check what this means
+
+```properties
+# create and drop tables and sequences, loads import.sql
+
+spring.jpa.hibernate.ddl-auto=create-drop
+```
+
+I think that's what is controlling stuff. 
+
+Describe not working -
+
+```shell script
+book=> \d book
+ERROR:  column c.relhasoids does not exist
+LINE 1: ...riggers, c.relrowsecurity, c.relforcerowsecurity, c.relhasoi...
+                                                             ^
+book=> \d+ book
+ERROR:  column c.relhasoids does not exist
+LINE 1: ...riggers, c.relrowsecurity, c.relforcerowsecurity, c.relhasoi...
+                                                             ^
+book=>
+```
+
 
