@@ -613,3 +613,21 @@ Caused by: org.hibernate.InstantiationException: No default constructor for enti
 	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
 	... 104 more
 ```
+
+After creating a default constructor for `Book` class, it worked. It's an empty constructor
+
+```shell script
+$ ./gradlew test
+
+> Task :test
+2020-08-27 00:04:34 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2020-08-27 00:04:34 INFO  o.h.t.s.i.SchemaDropperImpl$DelayedDropActionImpl - HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2020-08-27 00:04:35 DEBUG org.hibernate.SQL - drop table if exists book cascade
+2020-08-27 00:04:35 DEBUG org.hibernate.SQL - drop sequence if exists hibernate_sequence
+2020-08-27 00:04:35 INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-27 00:04:35 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2020-08-27 00:04:35 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+
+BUILD SUCCESSFUL in 5s
+4 actionable tasks: 2 executed, 2 up-to-date
+```

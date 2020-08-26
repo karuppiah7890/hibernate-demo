@@ -17,6 +17,9 @@ public class Book {
         this.name = name;
     }
 
+    public Book() {
+    }
+
     public Long getId() {
         return id;
     }
