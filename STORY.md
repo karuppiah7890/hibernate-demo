@@ -414,3 +414,10 @@ book=> select * from book ;
 
 book=>
 ```
+
+I tried to run it again. Somehow it knows that it shouldn't try to create the
+table again and also not import the `import.sql`. I think it's only a one time
+thing when a table is created. If table is already present, I think it won't be
+done. Hmm
+
+
