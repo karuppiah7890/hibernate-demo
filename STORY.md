@@ -633,3 +633,48 @@ BUILD SUCCESSFUL in 5s
 ```
 
 Now, what's pending is, trying to understand what ALL happened BEHIND the scenes.
+
+---
+
+https://www.callicoder.com/spring-boot-jpa-hibernate-postgresql-restful-crud-api-example/
+
+Adding this to the `application.properties`
+
+```properties
+# The SQL dialect makes Hibernate generate better SQL for the chosen database
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+```
+
+Auditing related fields - `createdAt`, `updatedAt` - How spring helps with it
+https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.auditing
+
+EntityListeners
+https://docs.oracle.com/javaee/7/api/javax/persistence/EntityListeners.html
+
+EnableJpaAuditing Annotation
+https://docs.spring.io/spring-data/jpa/docs/current/api/org/springframework/data/jpa/repository/config/EnableJpaAuditing.html
+
+There's something called "Configuration Classes"
+
+I understand there are models which are domain models - classes that map to tables in the
+database. 
+
+For generating ID, there's a SequenceGenerator being used
+https://docs.oracle.com/javaee/7/api/javax/persistence/SequenceGenerator.html
+
+There's a relationship being defined with `@ManyToOne` and how to join the tables
+using a foreign key column, and what to do when a related question is deleted - 
+cascade the delete to delete the answers too `@OnDelete(action = OnDeleteAction.CASCADE)`
+and question is present as a field in `Answer` class and it's ignored in the Json for
+serialization in responses I think
+
+Have to check what are the features provided by `JpaRepository`
+
+There's something called `ResponseEntity` for responses in Spring
+
+There's something called `Page` and `Pageable` and it allows pagination,
+along with sorting, page size too!
+
+Some more articles
+https://developer.okta.com/blog/2018/12/13/build-basic-app-spring-boot-jpa#add-a-domain-class-with-spring-data-and-jpa
+https://mkyong.com/spring-boot/spring-boot-spring-data-jpa-postgresql/
