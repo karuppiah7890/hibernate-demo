@@ -678,3 +678,7 @@ along with sorting, page size too!
 Some more articles
 https://developer.okta.com/blog/2018/12/13/build-basic-app-spring-boot-jpa#add-a-domain-class-with-spring-data-and-jpa
 https://mkyong.com/spring-boot/spring-boot-spring-data-jpa-postgresql/
+
+---
+
+I heard that the `AutoWired` annotation is not a good thing. Gotta check that too.
